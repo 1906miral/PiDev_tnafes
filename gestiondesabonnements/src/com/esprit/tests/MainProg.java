@@ -26,11 +26,11 @@ public class MainProg {
         ServiceAbonnement sp = new ServiceAbonnement();
         ServiceAbonnementAnnuel sa = new ServiceAbonnementAnnuel();
         ServiceAbonnementMensuel sm = new ServiceAbonnementMensuel();
-        Abonnement a1 = new Abonnement("10/20/2020","10/20/2021");
-        Abonnement a2 = new Abonnement("11/20/2020","11/20/2021");
-        Abonnement a3 = new Abonnement(12,"12/20/2020","12/20/2021");
-        AbonnementAnnuel a4 = new AbonnementAnnuel("12/20/2020","12/20/2021",200);
-        AbonnementMensuel a5 = new AbonnementMensuel("13/20/2020","14/20/2021",300);
+        Abonnement a1 = new Abonnement("2020-10-20","2021-10-20");
+        Abonnement a2 = new Abonnement("2020-11-20","2021-11-20");
+        Abonnement a3 = new Abonnement(12,"2020-12-20","2021-12-20");
+        AbonnementAnnuel a4 = new AbonnementAnnuel(48,"2020-12-20","2021-12-20",200);
+        AbonnementMensuel a5 = new AbonnementMensuel(49,"2020-12-20","2021-12-20",300);
         DataSource ds = new DataSource();
         Scanner input=new Scanner(System.in);
         int choix;
@@ -64,6 +64,7 @@ public class MainProg {
                        }
                  case 2:
                         sp.supprimer(a3);
+                        sa.supprimer(a4);
                         sp.afficher().forEach(System.out::println);
                        { 
                           
@@ -80,7 +81,7 @@ public class MainProg {
                          break;
                  }
                  case 4:
-                      sp.chercher_abonnement("10/20/2020").forEach(System.out::println);
+                      sp.chercher_abonnement("2020-10-20").forEach(System.out::println);
                  {
                     break;
                  }
@@ -91,7 +92,7 @@ public class MainProg {
                     break;
                  }
                  case 6:
-                      sp.modifier(new Abonnement(10,"12/20/2030","12/20/2040"));
+                      sp.modifier(new Abonnement(44,"2030-12-20","2040-12-20"));
                  {
                     break;
                  }

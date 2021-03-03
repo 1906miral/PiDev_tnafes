@@ -12,8 +12,8 @@ package com.esprit.models;
 public class AbonnementAnnuel extends Abonnement {
     private float prix_annuel;
     
-    public AbonnementAnnuel(String date_debut, String date_fin,float prix_annuel) {
-        super(date_debut, date_fin);
+    public AbonnementAnnuel(int id_abonnement,String date_debut, String date_fin,float prix_annuel) {
+        super(id_abonnement,date_debut, date_fin);
         this.prix_annuel = prix_annuel;
     }
      public float getprix_annuel() {

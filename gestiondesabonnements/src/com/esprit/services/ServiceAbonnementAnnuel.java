@@ -8,6 +8,7 @@ package com.esprit.services;
 import com.esprit.models.AbonnementAnnuel;
 import com.esprit.utils.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,10 +26,14 @@ public class ServiceAbonnementAnnuel implements IService<AbonnementAnnuel> {
     @Override
     public void ajouter(AbonnementAnnuel t) {
         try {
-            String requete = "INSERT INTO abonnement_annuel (date_debut,date_fin,prix_annuel) VALUES ('" + t.getdate_debut() + "','" + t.getdate_fin() + "','" + t.getprix_annuel() + "')";
-            Statement st = cnx.createStatement();
-            st.executeUpdate(requete);
-            System.out.println("abonnement_annuel ajoutée !");
+            String requete = "INSERT INTO abonnement_annuel (id_abonnement,date_debut,date_fin,prix_annuel) VALUES (?,CONVERT(?, DATE),CONVERT(?, DATE),?)";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,t.getId());
+            pst.setString(2,t.getdate_debut());
+            pst.setString(3,t.getdate_fin());
+            pst.setFloat(4,t.getprix_annuel());
+            pst.executeUpdate();
+            System.out.println("Abonnement_annuel ajoutée !");
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -70,7 +75,7 @@ public class ServiceAbonnementAnnuel implements IService<AbonnementAnnuel> {
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
-                list.add(new AbonnementAnnuel(rs.getString("date_debut"), rs.getString(2),rs.getFloat(3)));
+                list.add(new AbonnementAnnuel(rs.getInt(1),rs.getString("date_debut"), rs.getString(3),rs.getFloat(4)));
             }
 
         } catch (SQLException ex) {

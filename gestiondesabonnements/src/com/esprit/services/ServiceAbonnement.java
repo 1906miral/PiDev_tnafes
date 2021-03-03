@@ -25,7 +25,7 @@ public class ServiceAbonnement implements IService<Abonnement> {
     @Override
     public void ajouter(Abonnement t) {
         try {
-            String requete = "INSERT INTO abonnement (date_debut,date_fin) VALUES (?,?)";
+            String requete = "INSERT INTO abonnement (date_debut,date_fin) VALUES (CONVERT(?, DATE),CONVERT(?, DATE))";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setString(1,t.getdate_debut());
             pst.setString(2,t.getdate_fin());
@@ -55,7 +55,7 @@ public class ServiceAbonnement implements IService<Abonnement> {
     @Override
     public void modifier(Abonnement t) {
         try {
-            String requete = "UPDATE abonnement SET date_debut=?,date_fin=? WHERE id_abonnement=?";
+            String requete = "UPDATE abonnement SET date_debut=CONVERT(?, DATE),date_fin=CONVERT(?, DATE) WHERE id_abonnement=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(3, t.getId());
             pst.setString(1,t.getdate_debut());
@@ -105,7 +105,7 @@ public class ServiceAbonnement implements IService<Abonnement> {
         return list;
     }
 public List<Abonnement>chercher_abonnement(String date_debut) {
-        String requete="select * from abonnement where date_debut=?";
+        String requete="select * from abonnement where date_debut=CONVERT(?, DATE)";
         ResultSet rs=null;
         List list=new ArrayList();
         try{
