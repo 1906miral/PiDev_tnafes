@@ -5,40 +5,49 @@
  */
 package com.service;
 
+import com.models.activite;
 import com.models.categorie;
 import com.utils.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
 /**
  *
  * @author HP
  */
-public class ServiceCategorie implements IService<categorie>{
-
+public class ServiceActivite implements IService<activite> {
      Connection cnx = DataSource.getInstance().getCnx();
     @Override
-    public void ajouter(categorie t) {
-         try {
-            String requete = "INSERT INTO categorie (nom_categorie) VALUES (?)";
+    public void ajouter(activite t) {
+        Calendar c = Calendar.getInstance();
+         Timestamp ts = new Timestamp(c.getTimeInMillis());
+        try {
+           // String requete = "INSERT INTO activite (id_categorie,id_coachact,titre,date_pub,description) VALUES (?,?,?,?,?)";
+           String requete = "INSERT INTO activite (titre,date_pub,description) VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setString(1, t.getNom());
+//            pst.setInt(1, t.getId_categorie());
+//            pst.setInt(2, t.getId_coachact());
+            pst.setString(1, t.getTitre());
+            pst.setTimestamp(2, ts);
+            pst.setString(3, t.getDescription());
             pst.executeUpdate();
-            System.out.println("catégorie ajoutée !");
+            System.out.println("Activité ajoutée !");
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
-    
-    
+
     @Override
     public void supprimer(int t) {
         try {
-            String requete = "DELETE FROM categorie WHERE id_categorie=?";
+            String requete = "DELETE FROM activite WHERE id_activite=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1, t);
              int row= pst.executeUpdate();
@@ -47,40 +56,23 @@ public class ServiceCategorie implements IService<categorie>{
 //           int row= pst.executeUpdate();
 //            System.out.println(row);
 if(row>0)
-            System.out.println("catégorie supprimée !");
+            System.out.println("activite supprimée !");
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-
-//    @Override
-//    public void supprimer(categorie t) {
-//        try {
-//            String requete = "DELETE FROM categorie WHERE id_categorie=?";
-//            PreparedStatement pst = cnx.prepareStatement(requete);
-//            pst.setInt(1, t.getId());
-//             int row= pst.executeUpdate();
-//            System.out.println(row);
-////           int row= pst.executeUpdate();
-////            System.out.println(row);
-//            System.out.println("catégorie supprimée !");
-//
-//        } catch (SQLException ex) {
-//            System.err.println(ex.getMessage());
-//        }
-//    }
-
     @Override
-    public void modifier(categorie t) {
+    public void modifier(activite t) {
         try {
-            String requete = "UPDATE categorie SET nom_categorie=? WHERE id_categorie=?";
+            String requete = "UPDATE activite SET titre=?,description=? WHERE id_activite=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(2, t.getId());
-            pst.setString(1, t.getNom());
+            pst.setString(1, t.getTitre());
+            pst.setString(2, t.getDescription());
+            pst.setInt(3, t.getId_activite());
            pst.executeUpdate();
-            System.out.println("catégorie modifiée !");
+            System.out.println("activité modifiée !");
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -88,16 +80,15 @@ if(row>0)
     }
 
     @Override
-    public List<categorie> afficher() {
-        
-        List<categorie> list = new ArrayList<>();
+    public List<activite> afficher() {
+       List<activite> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM categorie";
+            String requete = "SELECT * FROM activite";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new categorie(rs.getInt(1), rs.getString(2)));
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getTimestamp(5),rs.getString(6)));
             }
 
         } catch (SQLException ex) {
@@ -106,10 +97,10 @@ if(row>0)
 
         return list;
     }
-//les collections ou les streams pour tri et recherche des metiers
+
     @Override
-    public List<categorie> rechercher(String t) {
-        List<categorie> list = new ArrayList<>();
+    public List<activite> rechercher(String t) {
+        List<activite> list = new ArrayList<>();
 
         try {
 //            String requete = "UPDATE categorie SET nom_categorie=? WHERE id_categorie=?";
@@ -117,7 +108,7 @@ if(row>0)
 //            pst.setInt(2, t.getId());
 //            pst.setString(1, t.getNom());
 //           pst.executeUpdate();
-            String requete = "SELECT * FROM categorie WHERE nom_categorie=?";
+            String requete = "SELECT * FROM activite WHERE titre=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setString(1,t);
             ResultSet rs = pst.executeQuery();
@@ -126,7 +117,7 @@ if(row>0)
 ////            }
             
             while (rs.next()) {
-                list.add(new categorie(rs.getInt(1), rs.getString(2)));
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getTimestamp(5),rs.getString(6)));
             }
             
 
@@ -138,15 +129,15 @@ if(row>0)
     }
 
     @Override
-    public List<categorie> trier() {
-        List<categorie> list = new ArrayList<>();
+    public List<activite> trier() {
+        List<activite> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM categorie ORDER BY nom_categorie";
+            String requete = "SELECT * FROM activite ORDER BY titre";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new categorie(rs.getInt(1), rs.getString(2)));
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getTimestamp(5),rs.getString(6)));
             }
 
         } catch (SQLException ex) {
@@ -156,13 +147,12 @@ if(row>0)
         return list;
     }
     
-    
     public List<Integer> getID_s() {
         
         List<Integer> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT id_categorie FROM categorie";
+            String requete = "SELECT id_activite FROM activite";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {

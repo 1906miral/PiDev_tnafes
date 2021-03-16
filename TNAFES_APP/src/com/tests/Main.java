@@ -5,8 +5,10 @@
  */
 package com.tests;
 
+import com.models.activite;
 import com.service.ServiceCategorie;
 import com.models.categorie;
+import com.service.ServiceActivite;
 import java.util.ArrayList;
 import java.util.List;
 import  java.util.Scanner;
@@ -19,6 +21,11 @@ public class Main {
     
     public static void main(String[] args) {
          ServiceCategorie sc = new ServiceCategorie();
+         //ServiceActivite sa = new ServiceActivite();
+         //sa.afficher().forEach(e->System.out.print(e));
+         //sa.modifier(new activite(5,"act2","desc"));
+         //sa.ajouter(new activite("activite2","bbbbbbb"));
+         //sa.supprimer(4);
 //        //sc.ajouter(new categorie( "salim"));
 //        categorie c1=new categorie("mahdi");
 //////        sc.ajouter(c1);
@@ -48,9 +55,13 @@ public class Main {
       System.out.println("---entrez le nom de la catégorie : ");
       String name = scan.nextLine();
       System.out.println("");
+       list=sc.rechercher(name);
+       if(list.isEmpty()){
       categorie c=new categorie(name);
       sc.ajouter(c);
-      System.out.println("");
+      System.out.println("");}
+       else System.out.println("catégorie existe déja");
+       System.out.println("");
       
     break;
   case 2:
