@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="816.0" style="-fx-background-color: E1B3E5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+   <children>
+      <Accordion />
+      <ImageView fitHeight="232.0" fitWidth="284.0" layoutX="74.0" layoutY="154.0">
+         <image>
+            <Image url="@../Assets/tnafes.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="login" layoutX="14.0" layoutY="25.0" opacity="0.57" prefHeight="537.0" prefWidth="418.0" styleClass="login" stylesheets="@stylesheet.css">
+         <effect>
+            <Shadow height="97.26" radius="63.620000000000005" width="159.22">
+               <color>
+                  <Color red="0.3390786945819855" green="0.13157407939434052" blue="0.3499999940395355" />
+               </color>
+            </Shadow>
+         </effect>
+         <children>
+            <AnchorPane layoutX="150.0" layoutY="175.0" />
+         </children>
+      </AnchorPane>
+      <TextField fx:id="email_login" layoutX="579.0" layoutY="227.0" />
+      <TextField fx:id="mdp_login" layoutX="579.0" layoutY="301.0" />
+      <Label layoutX="481.0" layoutY="228.0" text="Email">
+         <font>
+            <Font name="Calibri Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="302.0" text="Mot de passe">
+         <font>
+            <Font name="Calibri Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="527.0" layoutY="107.0" text="Se connecter">
+         <font>
+            <Font name="Calibri Italic" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="login_btn" layoutX="579.0" layoutY="386.0" mnemonicParsing="false" onAction="#login" styleClass="loginbtn" stylesheets="@stylesheet.css" text="Se connecter">
+         <font>
+            <Font name="Calibri Italic" size="19.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
