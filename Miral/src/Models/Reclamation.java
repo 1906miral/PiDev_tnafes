@@ -26,6 +26,7 @@ public class Reclamation {
     private String objet;
     private String description;
     private String etat;
+    
 //    private Timestamp date=Timestamp.valueOf(LocalDateTime.MIN);
     private Date date;
     private Date date_traitement;

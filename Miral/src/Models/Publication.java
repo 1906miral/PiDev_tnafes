@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -24,7 +25,7 @@ public class Publication implements Serializable{
     private user id_user;
 //    private byte[] urlimage;
     private String urlimage;
-
+   private ImageView img;
     public Publication() {
     }
     
@@ -47,14 +48,21 @@ public class Publication implements Serializable{
         this.urlimage=url;
     }
 //display
+    public Publication(int id_pub, String contenu, Date date_publication,ImageView img) {
+        this.id_pub = id_pub;
+        this.contenu = contenu;
+        this.date_publication = date_publication;
+     
+        this.img=img;
+//        this.id_user = id_user;
+    }
+//delete
     public Publication(int id_pub, String contenu, Date date_publication,String url) {
         this.id_pub = id_pub;
         this.contenu = contenu;
         this.date_publication = date_publication;
         this.urlimage=url;
-//        this.id_user = id_user;
     }
-
     public int getId_pub() {
         return id_pub;
     }
@@ -104,6 +112,14 @@ public class Publication implements Serializable{
     public int hashCode() {
         int hash = 5;
         return hash;
+    }
+
+    public ImageView getImg() {
+        return img;
+    }
+
+    public void setImg(ImageView img) {
+        this.img = img;
     }
 
     @Override

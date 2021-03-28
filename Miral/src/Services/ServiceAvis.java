@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import Utils.DataSource;
+import org.controlsfx.control.Rating;
 
 /**
  *
@@ -75,10 +76,15 @@ Connection cnx=DataSource.getInstance().getCnx();
     public List<Avis> afficher_avis() {
         List<Avis> list=new ArrayList<>();
         try{
-            String requete="select * from avis";
+            String requete="select id_avis,id_clientavis,email,rating,date_avis from avis";
             PreparedStatement pst=cnx.prepareStatement(requete);
             ResultSet rs=pst.executeQuery();
             while(rs.next()){
+                Avis r = new Avis();
+                r.setId_avis(rs.getInt(1));
+                Rating rr=new Rating();
+                rr.setRating(rs.getInt(4));
+                rr.setDisable(true);
                 list.add(new Avis(rs.getInt("id_avis"),rs.getString("email"),rs.getInt("rating"),rs.getDate("date_avis")));
             }
         }

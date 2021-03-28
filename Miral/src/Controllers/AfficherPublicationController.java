@@ -88,7 +88,7 @@ public class AfficherPublicationController implements Initializable {
     @FXML
     private TableColumn<Publication,Date> col_datepub;
     @FXML
-    private TableColumn<Publication,String> col_image;
+    private TableColumn<Publication,ImageView> col_image;
     @FXML
     private TableColumn  col_delete;
     Services.ServicePublication sp=new ServicePublication();
@@ -107,7 +107,7 @@ public class AfficherPublicationController implements Initializable {
    combo_tri.setItems(combo);
    col_contenupub.setCellValueFactory(new PropertyValueFactory<>("contenu"));
    col_datepub.setCellValueFactory(new PropertyValueFactory<>("date_publication"));
-   col_image.setCellValueFactory(new PropertyValueFactory<>("urlimage"));
+   col_image.setCellValueFactory(new PropertyValueFactory<>("img"));
    tableViewPub.setItems(data);
    SortedList<Publication> sortedData=tableViewSearchFilter(data);
     tableViewPub.setItems(sortedData);

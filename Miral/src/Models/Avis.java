@@ -19,6 +19,9 @@ public class Avis {
     private int rating;
     private Date date_avis;
 
+    public Avis() {
+    }
+
 //    public Avis(Utilisateur idclient_avis) {
 //        this.idclient_avis = idclient_avis;
 //    }

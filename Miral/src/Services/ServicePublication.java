@@ -97,9 +97,20 @@ Connection cnx=DataSource.getInstance().getCnx();
             ResultSet rs=pst.executeQuery();
             
             while(rs.next()){
-             
-
-              list.add(new Publication(rs.getInt("id_pub"),rs.getString("contenu"),rs.getDate("date_publication"),rs.getString("urlimage")));
+             Publication p=new Publication();
+             ImageView img=new ImageView();
+             Image image;
+             try{
+                 image=new Image(new FileInputStream(rs.getString("urlimage")));
+                 img.setImage(image);
+                 img.setPreserveRatio(true);
+                 img.setFitWidth(50);
+                 img.setFitHeight(50);
+             }catch (FileNotFoundException ex) {
+                    System.out.println(ex.getMessage());
+                }
+             p.setImg(img);
+              list.add(new Publication(rs.getInt("id_pub"),rs.getString("contenu"),rs.getDate("date_publication"),p.getImg()));
             }
         }
         catch(SQLException ex){
@@ -117,9 +128,21 @@ Connection cnx=DataSource.getInstance().getCnx();
             ResultSet rs=pst.executeQuery();
             
             while(rs.next()){
-             
+                   Publication p=new Publication();
+             ImageView img=new ImageView();
+             Image image;
+             try{
+                 image=new Image(new FileInputStream(rs.getString("urlimage")));
+                 img.setImage(image);
+                 img.setPreserveRatio(true);
+                 img.setFitWidth(50);
+                 img.setFitHeight(50);
+             }catch (FileNotFoundException ex) {
+                    System.out.println(ex.getMessage());
+                }
+             p.setImg(img);
 
-              list.add(new Publication(rs.getInt("id_pub"),rs.getString("contenu"),rs.getDate("date_publication"),rs.getString("urlimage")));
+              list.add(new Publication(rs.getInt("id_pub"),rs.getString("contenu"),rs.getDate("date_publication"),p.getImg()));
             }
         }
         catch(SQLException ex){
@@ -137,9 +160,21 @@ Connection cnx=DataSource.getInstance().getCnx();
             ResultSet rs=pst.executeQuery();
             
             while(rs.next()){
-             
+                   Publication p=new Publication();
+             ImageView img=new ImageView();
+             Image image;
+             try{
+                 image=new Image(new FileInputStream(rs.getString("urlimage")));
+                 img.setImage(image);
+                 img.setPreserveRatio(true);
+                 img.setFitWidth(50);
+                 img.setFitHeight(50);
+             }catch (FileNotFoundException ex) {
+                    System.out.println(ex.getMessage());
+                }
+             p.setImg(img);
 
-              list.add(new Publication(rs.getInt("id_pub"),rs.getString("contenu"),rs.getDate("date_publication"),rs.getString("urlimage")));
+              list.add(new Publication(rs.getInt("id_pub"),rs.getString("contenu"),rs.getDate("date_publication"),p.getImg()));
             }
         }
         catch(SQLException ex){
