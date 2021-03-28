@@ -114,7 +114,7 @@ public class ReclamationClientController implements Initializable {
                      
 //                                         String msg="Mr/Mme "+selectedreclam.getNom_user()+" "+selectedreclam.getPrenom_user()+" votre réclamation est traitée avec succés,merci pour votre confiance";
 //                                         javaMail mailling=new javaMail();
-//                                           mailling.message(selectedreclam.getEmail(),"Mr/Mme "+selectedreclam.getNom_user()+" "+selectedreclam.getPrenom_user()+" votre réclamation est traitée avec succés,merci pour votre confiance");
+//                                           mailling.message(selectedreclam.getEmail(),msg);
 //                                          String url="https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0";
 //                                          String username="barhoumimiral3"; //barhoumimiral3 redissimanel oumaima1 titi1
 //                                          String pwd="Miral1906"; 
