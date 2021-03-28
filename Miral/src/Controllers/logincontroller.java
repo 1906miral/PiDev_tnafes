@@ -47,6 +47,11 @@ public class logincontroller {
     @FXML
     private void login(ActionEvent event) throws IOException, ParseException {//ken famma erreur houni tafih yemchi 3adi(Refactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed)
         session se;
+        
+        
+//        servicesession scc = new servicesession();
+//        List<coach> listcc = new ArrayList<coach>();
+//        listcc = scc.recherchecoach(tfmail.getText());
         servicesession ss = new servicesession();
         List<coach> listc = new ArrayList<coach>();
         listc = ss.recherchecoach(tfmail.getText());
@@ -93,7 +98,7 @@ public class logincontroller {
                 if(pass.equals(u.getPassword())){
                     Boolean permaban = ss.bancheck(tfmail.getText());
                     Date dateblock = ss.dateblockcheck(tfmail.getText());
-                    se = new session(u.getId(),"coach",permaban,dateblock);
+                    se = new session(u.getId(),"client",permaban,dateblock);
                     if(permaban) JOptionPane.showMessageDialog(null, "Accès refusé.");
                     else if(!(permaban)&&dateblock!=null) {
                         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
@@ -104,13 +109,13 @@ public class logincontroller {
                         if(dateblock.compareTo(datelyoum)>0) JOptionPane.showMessageDialog(null, "Accès refusé jusqu'au "+dateblock);
                         else {
                             se.writetofile();
-                            Parent root = FXMLLoader.load(getClass().getResource("../GUI/clientmenu.fxml"));//li 3andou des fonctions client yzidhom fel fxml he4i
+                            Parent root = FXMLLoader.load(getClass().getResource("../GUI/acceuil.fxml"));//li 3andou des fonctions client yzidhom fel fxml he4i
                             btnlogin.getScene().setRoot(root);
                         }
                     }
                     else if(!(permaban)&&dateblock==null){
                         se.writetofile();
-                        Parent root = FXMLLoader.load(getClass().getResource("../GUI/clientmenu.fxml"));//li 3andou des fonctions client yzidhom fel fxml he4i
+                        Parent root = FXMLLoader.load(getClass().getResource("../GUI/acceuil.fxml"));//li 3andou des fonctions client yzidhom fel fxml he4i
                         btnlogin.getScene().setRoot(root);
                     }
                 }

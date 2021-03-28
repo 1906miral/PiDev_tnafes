@@ -202,24 +202,42 @@
             <TableColumn fx:id="col_image" minWidth="0.0" prefWidth="174.39996337890625" text="Image" />
             <TableColumn fx:id="col_delete" minWidth="0.0" prefWidth="194.4000122070313" text="Actions" />
          </columns>
+         <effect>
+            <DropShadow />
+         </effect>
       </TableView>
       <Label layoutX="241.0" layoutY="26.0" text="Liste des publications">
          <font>
             <Font name="Calibri Italic" size="35.0" />
          </font>
       </Label>
-      <TextField fx:id="searchpub" layoutX="321.0" layoutY="121.0" prefHeight="26.0" prefWidth="185.0" promptText="rechereche par contenu" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;" />
+      <TextField fx:id="searchpub" layoutX="321.0" layoutY="121.0" prefHeight="26.0" prefWidth="185.0" promptText="rechereche par contenu" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;">
+         <effect>
+            <DropShadow />
+         </effect></TextField>
       <ImageView fitHeight="26.0" fitWidth="55.0" layoutX="284.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/loupe.png" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
-      <ComboBox fx:id="combo_tri" layoutX="576.0" layoutY="121.0" onAction="#trierPublication" prefWidth="150.0" promptText="Trier par" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;" />
+      <ComboBox fx:id="combo_tri" layoutX="576.0" layoutY="121.0" onAction="#trierPublication" prefWidth="150.0" promptText="Trier par" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;">
+         <effect>
+            <DropShadow />
+         </effect></ComboBox>
       <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="543.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/sort.png" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
-      <Button layoutX="974.0" layoutY="691.0" mnemonicParsing="false" onAction="#addPub" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;" text="Ajouter Publication" />
+      <Button layoutX="974.0" layoutY="691.0" mnemonicParsing="false" onAction="#addPub" style="-fx-background-color: #86A8E7; -fx-background-radius: 2em;" text="Ajouter Publication">
+         <effect>
+            <DropShadow />
+         </effect></Button>
    </children>
 </AnchorPane>

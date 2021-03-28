@@ -94,7 +94,7 @@ public class BadWordsFilter {
 			// will still function normally otherwise - it just won't censor any
 			// swear words.)
 
-			FileReader fr = new FileReader("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\final_template\\src\\Word_Filter-Sheet1.csv");
+			FileReader fr = new FileReader("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\Miral\\src\\Word_Filter-Sheet1.csv");
 			BufferedReader reader = new BufferedReader(fr);
 
 			// BufferedReader reader = new BufferedReader(new

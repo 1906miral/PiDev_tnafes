@@ -16,5 +16,5 @@ public interface IServiceAvis {
     public void ajouter_avis(Avis t);
 //    public void supprimer_avis(Avis t);
 //    public void modifier_avis(Avis t);
-    public List<Avis> afficher_avis();
+    public List<Avis> afficher_avis(int id);
 }

@@ -37,13 +37,14 @@ public class ServiceCommentaire implements IServices.IServiceCommentaire{
             pst.setString(4,t.getIdclient_comment().getPrenom());
             pst.setInt(5,t.getIdpub().getId_pub());
            pst.executeUpdate();
-            String output = BadWordsFilter.getCensoredText(t.getContenu_comment());
+            
             System.out.println("Commentaire ajouté !");
    
         }
         catch(SQLException ex){
             System.err.println(ex.getMessage());
             }
+        
     }
 
     public void supprimer_comment(Commentaire t) {
