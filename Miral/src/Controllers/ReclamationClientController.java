@@ -119,7 +119,8 @@ public class ReclamationClientController implements Initializable {
 //                                          String username="barhoumimiral3"; //barhoumimiral3 redissimanel oumaima1 titi1
 //                                          String pwd="Miral1906"; //Rootroot123
 //                                            SMS send=new SMS();
-//                                          send.sendSms(username,pwd,msg,selectedreclam.getNumtel(),url);
+//                                           String numtel="+216"+selectedreclam.getNumtel();
+//                                          send.sendSms(username,pwd,msg,numtel,url);
                                           Notifications b = Notifications.create()
                     .title("Succes")
                     .text("Réclamation modifiée,Client notifié avec succés")
