@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Models/user.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Models/Avis.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/signupcontroller.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/ReclamationsController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/APIs/BadWordsFilter.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/envoyerReclamController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/IServices/IServiceAvis.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Models/session.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/GUI/ModifierPublication.fxml</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Services/ServiceCommentaire.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Models/Publication.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/ReclamationClientController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/APIs/javaMail.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/AfficherPublicationController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/acceuilPubController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Services/ServiceAvis.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Services/ServicePublication.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/APIs/SMS.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/ModifierPublicationController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/GUI/AfficherPublication.fxml</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/IServices/IServicePublication.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/logincontroller.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Models/Reclamation.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/acceuilController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Tests/main.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/GUI/acceuil.fxml</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Controllers/AjouterPubController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/Miral/src/Services/ServiceReclamation.java</file>
+        </group>
+    </open-files>
+</project-private>
