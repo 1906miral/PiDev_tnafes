@@ -51,6 +51,18 @@ public class EntryController implements Initializable {
      window.show();
     }
     
+    
+    public void chnageScreenButtonPushed2(ActionEvent event) throws IOException{
+        Parent gestionView = FXMLLoader.load(getClass().getResource("menuArt.fxml"));
+     Scene gestionViewScene = new Scene(gestionView);
+     
+     //les informations du stage
+     Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
+     
+     window.setScene(gestionViewScene);
+     window.show();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

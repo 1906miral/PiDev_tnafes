@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -25,17 +27,19 @@ public class ServiceActivite implements IService<activite> {
      Connection cnx = DataSource.getInstance().getCnx();
     @Override
     public void ajouter(activite t) {
-        Calendar c = Calendar.getInstance();
-         Timestamp ts = new Timestamp(c.getTimeInMillis());
+//        Calendar c = Calendar.getInstance();
+//         Timestamp ts = new Timestamp(c.getTimeInMillis());
         try {
            // String requete = "INSERT INTO activite (id_categorie,id_coachact,titre,date_pub,description) VALUES (?,?,?,?,?)";
-           String requete = "INSERT INTO activite (titre,date_pub,description) VALUES (?,?,?)";
+           String requete = "INSERT INTO activite (titre,description,nomcat,date) VALUES (?,?,?,CURRENT_TIMESTAMP())";
             PreparedStatement pst = cnx.prepareStatement(requete);
 //            pst.setInt(1, t.getId_categorie());
 //            pst.setInt(2, t.getId_coachact());
             pst.setString(1, t.getTitre());
-            pst.setTimestamp(2, ts);
-            pst.setString(3, t.getDescription());
+            //pst.setTimestamp(3,ts);
+            pst.setString(2, t.getDescription());
+            pst.setString(3, t.getNomcat());
+            //pst.setDate(4, t.getDate());
             pst.executeUpdate();
             System.out.println("Activité ajoutée !");
 
@@ -88,7 +92,7 @@ if(row>0)
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getTimestamp(5),rs.getString(6)));
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getDate(5),rs.getString(6),rs.getString(7)));
             }
 
         } catch (SQLException ex) {
@@ -117,7 +121,7 @@ if(row>0)
 ////            }
             
             while (rs.next()) {
-                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getTimestamp(5),rs.getString(6)));
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getDate(5),rs.getString(6),rs.getString(7)));
             }
             
 
@@ -133,16 +137,39 @@ if(row>0)
         List<activite> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM activite ORDER BY titre";
+            String requete = "SELECT * FROM activite ";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getTimestamp(5),rs.getString(6)));
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getDate(5),rs.getString(6),rs.getString(7)));
             }
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+        //TRI
+        Collections.sort(list, new MyComparatorAct());
+
+        return list;
+    }
+    
+    
+    public List<activite> trier1() {
+        List<activite> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM activite ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new activite(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getDate(5),rs.getString(6),rs.getString(7)));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        //TRI
+        Collections.sort(list, new MyComparatorAct1());
 
         return list;
     }
@@ -164,6 +191,25 @@ if(row>0)
         }
 
         return list;
+    }
+    
+}
+// class pour trier les activités
+class MyComparatorAct implements Comparator<activite>{
+
+    @Override
+    public int compare(activite o1, activite o2) {
+      return o1.getTitre().compareTo(o2.getTitre());
+    }
+
+    
+    
+}
+class MyComparatorAct1 implements Comparator<activite>{
+
+    @Override
+    public int compare(activite o1, activite o2) {
+      return o2.getTitre().compareTo(o1.getTitre());
     }
     
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #a3a3c2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gui.EntryController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gui.EntryController">
    <children>
       <Button layoutX="40.0" layoutY="330.0" mnemonicParsing="false" onAction="#chnageScreenButtonPushed" prefHeight="51.0" prefWidth="241.0" text="Gestion catégories">
          <font>
@@ -23,5 +23,9 @@
             <Font size="22.0" />
          </font>
       </Button>
+      <Button layoutX="280.0" layoutY="417.0" mnemonicParsing="false" onAction="#chnageScreenButtonPushed2" prefHeight="51.0" prefWidth="241.0" text="Gestion articles">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
    </children>
 </AnchorPane>

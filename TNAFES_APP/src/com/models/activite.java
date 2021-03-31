@@ -6,7 +6,8 @@
 package com.models;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
+import java.sql.Date;
 
 /**
  *
@@ -17,12 +18,19 @@ public class activite {
     private int id_categorie;
     private int id_coachact;
     private String titre;
-    private Timestamp date_pub=Timestamp.valueOf(LocalDateTime.MIN);
+    private Date date;
     private String description;
+    private String nomcat;
 
     public activite(String titre, String description) {
         this.titre = titre;
         this.description = description;
+    }
+
+    public activite(String titre, String description, String nom_categorie) {
+        this.titre = titre;
+        this.description = description;
+        this.nomcat = nom_categorie;
     }
 
     public activite(int id_activite, String titre, String description) {
@@ -30,14 +38,45 @@ public class activite {
         this.titre = titre;
         this.description = description;
     }
-    
-    
 
-    public activite(int id_activite, int id_categorie, int id_coachact, String titre,Timestamp date_pub, String description) {
+    public Date getDate() {
+        return date;
+    }
+
+//    public String getNom_categorie() {
+//        return nomcat;
+//    }
+//
+//    public void setNom_categorie(String nom_categorie) {
+//        this.nomcat= nom_categorie;
+//    }
+
+    public String getNomcat() {
+        return nomcat;
+    }
+
+    public void setNomcat(String nomcat) {
+        this.nomcat = nomcat;
+    }
+    
+    
+    
+     public activite(int id_activite, int id_categorie, int id_coachact, String titre,Date date_pub, String description,String nom_categorie) {
         this.id_activite = id_activite;
         this.id_categorie = id_categorie;
         this.id_coachact = id_coachact;
-        this.date_pub=date_pub;
+        this.date=date_pub;
+        this.titre = titre;
+        this.description = description;
+        this.nomcat=nom_categorie;
+    }
+    
+// constructeur affichage
+    public activite(int id_activite, int id_categorie, int id_coachact, String titre,Date date_pub, String description) {
+        this.id_activite = id_activite;
+        this.id_categorie = id_categorie;
+        this.id_coachact = id_coachact;
+        this.date=date_pub;
         this.titre = titre;
         this.description = description;
     }
@@ -91,7 +130,7 @@ public class activite {
 
     @Override
     public String toString() {
-        return "activite{" + "id_activite=" + id_activite + ", id_categorie=" + id_categorie + ", id_coachact=" + id_coachact + ", titre=" + titre + ", date_pub=" + date_pub + ", description=" + description + '}';
+        return "activite{" + "id_activite=" + id_activite + ", id_categorie=" + id_categorie + ", id_coachact=" + id_coachact + ", titre=" + titre + ", date_pub=" + date + ", description=" + description + '}';
     }
     
     

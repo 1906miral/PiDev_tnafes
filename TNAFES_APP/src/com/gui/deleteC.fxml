@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #a3a3c2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gui.DeleteCController">
+<AnchorPane id="AnchorPane" prefHeight="763.0" prefWidth="1183.0" style="-fx-background-color: #a3a3c2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gui.DeleteCController">
    <children>
-      <Label layoutX="14.0" layoutY="40.0" text="Supprimer catégorie">
+      <Label layoutX="388.0" layoutY="55.0" text="Supprimer catégorie">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comb" layoutX="24.0" layoutY="135.0" onMouseClicked="#SelectedId" prefHeight="37.0" prefWidth="167.0" promptText="Id des catégories" />
+      <ComboBox fx:id="comb" layoutX="617.0" layoutY="165.0" onMouseClicked="#SelectedId" prefHeight="37.0" prefWidth="167.0" promptText="Id des catégories" />
       <Label layoutX="44.0" layoutY="267.0" text="Nom de catégorie :" />
-      <TextField fx:id="nomC" layoutX="240.0" layoutY="262.0" />
-      <Button layoutX="75.0" layoutY="334.0" mnemonicParsing="false" onAction="#supprimerCat" text="Supprimer" />
+      <TextField fx:id="nomC" layoutX="453.0" layoutY="255.0" />
+      <Button layoutX="502.0" layoutY="386.0" mnemonicParsing="false" onAction="#supprimerCat" text="Supprimer" />
       <Button layoutX="670.0" layoutY="423.0" mnemonicParsing="false" onAction="#retourmenu" text="retour" />
    </children>
 </AnchorPane>

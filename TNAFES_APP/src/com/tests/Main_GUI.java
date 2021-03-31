@@ -26,7 +26,7 @@ public class Main_GUI extends Application {
     public void start(Stage primaryStage) throws IOException {
 //FXMLLoader loader= new FXMLLoader(getClass().getResource("../gui/deleteC.fxml"));       
 //FXMLLoader loader= new FXMLLoader(getClass().getResource("../gui/afficherC.fxml"));
-FXMLLoader loader= new FXMLLoader(getClass().getResource("../gui/entry.fxml"));
+FXMLLoader loader= new FXMLLoader(getClass().getResource("../gui/Home.fxml"));
 Parent root= loader.load();
 
 Scene scene = new Scene(root);
@@ -44,7 +44,7 @@ primaryStage.show();
     }
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments 
      */
     public static void main(String[] args) {
         launch(args);

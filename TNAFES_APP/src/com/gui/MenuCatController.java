@@ -82,7 +82,83 @@ public class MenuCatController implements Initializable {
 
     @FXML
     private void retourmenu(ActionEvent event) throws IOException {
-        Parent gestionView = FXMLLoader.load(getClass().getResource("entry.fxml"));
+        Parent gestionView = FXMLLoader.load(getClass().getResource("Home.fxml")); 
+     Scene gestionViewScene = new Scene(gestionView);
+     
+     //les informations du stage
+     Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
+     
+     window.setScene(gestionViewScene);
+     window.show();
+    }
+    @FXML
+    private void logout(ActionEvent event) {
+    }
+
+    @FXML
+    private void settings_security(ActionEvent event) {
+    }
+
+    @FXML
+    private void gérerActivite(ActionEvent event) throws IOException {
+         Parent gestionView = FXMLLoader.load(getClass().getResource("menuAct.fxml"));
+     Scene gestionViewScene = new Scene(gestionView);
+     
+     //les informations du stage
+     Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
+     
+     window.setScene(gestionViewScene);
+     window.show();
+    }
+
+    @FXML
+    private void gererAbonnement(ActionEvent event) {
+    }
+
+    @FXML
+    private void displayCustomers(ActionEvent event) {
+    }
+
+    @FXML
+    private void GérerPublication(ActionEvent event) {
+    }
+
+    @FXML
+    private void acceuil(ActionEvent event) {
+    }
+
+    @FXML
+    private void gérerCoach(ActionEvent event) throws IOException {
+        
+    }
+
+    @FXML
+    private void gérerEvent(ActionEvent event) {
+    }
+
+    @FXML
+    private void gerercateg(ActionEvent event) throws IOException {
+          Parent gestionView = FXMLLoader.load(getClass().getResource("menuCat.fxml"));
+     Scene gestionViewScene = new Scene(gestionView);
+     
+     //les informations du stage
+     Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
+     
+     window.setScene(gestionViewScene);
+     window.show();
+    }
+
+    @FXML
+    private void gérerCategevent(ActionEvent event) {
+    }
+
+    @FXML
+    private void gérerParticipation(ActionEvent event) {
+    }
+
+    @FXML
+    private void gérerArticle(ActionEvent event) throws IOException {
+         Parent gestionView = FXMLLoader.load(getClass().getResource("menuArt.fxml"));
      Scene gestionViewScene = new Scene(gestionView);
      
      //les informations du stage

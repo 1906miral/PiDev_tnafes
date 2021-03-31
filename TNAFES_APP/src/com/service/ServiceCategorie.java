@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 /**
  *
@@ -25,7 +27,7 @@ public class ServiceCategorie implements IService<categorie>{
          try {
             String requete = "INSERT INTO categorie (nom_categorie) VALUES (?)";
             PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setString(1, t.getNom());
+            pst.setString(1, t.getNom_categorie());
             pst.executeUpdate();
             System.out.println("catégorie ajoutée !");
 
@@ -77,8 +79,8 @@ if(row>0)
         try {
             String requete = "UPDATE categorie SET nom_categorie=? WHERE id_categorie=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(2, t.getId());
-            pst.setString(1, t.getNom());
+            pst.setInt(2, t.getId_categorie());
+            pst.setString(1, t.getNom_categorie());
            pst.executeUpdate();
             System.out.println("catégorie modifiée !");
 
@@ -137,12 +139,31 @@ if(row>0)
         return list;
     }
 
+//    @Override
+//    public List<categorie> trier() {
+//        List<categorie> list = new ArrayList<>();
+//
+//        try {
+//            String requete = "SELECT * FROM categorie ORDER BY nom_categorie";
+//            PreparedStatement pst = cnx.prepareStatement(requete);
+//            ResultSet rs = pst.executeQuery();
+//            while (rs.next()) {
+//                list.add(new categorie(rs.getInt(1), rs.getString(2)));
+//            }
+//
+//        } catch (SQLException ex) {
+//            System.err.println(ex.getMessage());
+//        }
+//
+//        return list;
+//    }
+    
     @Override
     public List<categorie> trier() {
         List<categorie> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM categorie ORDER BY nom_categorie";
+            String requete = "SELECT * FROM categorie";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -152,6 +173,29 @@ if(row>0)
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+        //TRI
+        Collections.sort(list, new MyComparator());
+
+        return list;
+    }
+    
+    
+    public List<categorie> trier1() {
+        List<categorie> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM categorie";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new categorie(rs.getInt(1), rs.getString(2)));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        //TRI
+        Collections.sort(list, new MyComparator1());
 
         return list;
     }
@@ -174,6 +218,41 @@ if(row>0)
         }
 
         return list;
+    }
+    public List<String> getNC() {
+        
+        List<String> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT nom_categorie FROM categorie";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString(1));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    }
+    
+}
+// class pour trier les catégories
+class MyComparator implements Comparator<categorie>{
+
+    @Override
+    public int compare(categorie o1, categorie o2) {
+      return o1.getNom_categorie().compareTo(o2.getNom_categorie());
+    }
+    
+}
+class MyComparator1 implements Comparator<categorie>{
+
+    @Override
+    public int compare(categorie o1, categorie o2) {
+      return o2.getNom_categorie().compareTo(o1.getNom_categorie());
     }
     
 }

@@ -110,5 +110,16 @@ public class UpdateCController implements Initializable {
      window.setScene(gestionViewScene);
      window.show();
     }
+    @FXML
+    private void acceuil(ActionEvent event) throws IOException {
+         Parent gestionView = FXMLLoader.load(getClass().getResource("FrontArticle.fxml"));
+     Scene gestionViewScene = new Scene(gestionView);
+     
+     //les informations du stage
+     Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
+     
+     window.setScene(gestionViewScene);
+     window.show();
+    }
     
 }
