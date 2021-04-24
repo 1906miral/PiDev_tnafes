@@ -67,28 +67,28 @@ public class logincontroller {
                     se = new session(u.getId(),"admin",permaban,dateblock);//////w y9ayadhom
                     se.writetofile();////////////////////////////////////////////fi ficher
                     m.sendMail(tfmail.getText(),1);
-                    Parent root = FXMLLoader.load(getClass().getResource("../GUI/Home.fxml"));//li 3andou des fonctions admin yzidhom fel fxml he4i
+                    Parent root = FXMLLoader.load(getClass().getResource("../GUI/home.fxml"));//li 3andou des fonctions admin yzidhom fel fxml he4i
                     btnlogin.getScene().setRoot(root);
                 }
                 else JOptionPane.showMessageDialog(null, "Désolé, votre mot de passe est incorrect. Veuillez vérifier votre mot de passe.");
             }
         }
-        else if(!(listc.isEmpty())){//mail mta3 coach
-            for (user u : listu) {
-                hash h = new hash();
-                String pass = h.encryptThisString(passwordField.getText());
-                if(pass.equals(u.getPassword())){
-                    Boolean permaban = ss.bancheck(tfmail.getText());
-                    Date dateblock = ss.dateblockcheck(tfmail.getText());
-                    se = new session(u.getId(),"coach",permaban,dateblock);
-                    se.writetofile();
-                    m.sendMail(tfmail.getText(),1);
-                    Parent root = FXMLLoader.load(getClass().getResource("../GUI/coachmenu.fxml"));//li 3andou des fonctions coach yzidhom fel fxml he4i
-                    btnlogin.getScene().setRoot(root);
-                }
-                else JOptionPane.showMessageDialog(null, "Désolé, votre mot de passe est incorrect. Veuillez vérifier votre mot de passe.");
-            }
-        }
+//        else if(!(listc.isEmpty())){//mail mta3 coach
+//            for (user u : listu) {
+//                hash h = new hash();
+//                String pass = h.encryptThisString(passwordField.getText());
+//                if(pass.equals(u.getPassword())){
+//                    Boolean permaban = ss.bancheck(tfmail.getText());
+//                    Date dateblock = ss.dateblockcheck(tfmail.getText());
+//                    se = new session(u.getId(),"coach",permaban,dateblock);
+//                    se.writetofile();
+//                    m.sendMail(tfmail.getText(),1);
+//                    Parent root = FXMLLoader.load(getClass().getResource("../GUI/coachmenu.fxml"));//li 3andou des fonctions coach yzidhom fel fxml he4i
+//                    btnlogin.getScene().setRoot(root);
+//                }
+//                else JOptionPane.showMessageDialog(null, "Désolé, votre mot de passe est incorrect. Veuillez vérifier votre mot de passe.");
+//            }
+//        }
         else {
             for (user u : listu) {//mail mta3 client
                 hash h = new hash();

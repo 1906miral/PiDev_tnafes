@@ -3,7 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/miral/Pidev_tnafes/PIdev_desktopfinal/src/APIs/javaMail.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/logincontroller.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/acceuilPubController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/ParticipationController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/AfficherPublicationController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/StatController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Services/ServiceArticle.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/acceuil2Controller.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/StatReclamationController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Utils/DataSource.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Services/servicesession.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/ReclamationClientController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/ReclamationsController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/AfficherEventController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/AjoutCategorieController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Services/ServicePublication.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Models/Publication.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/HomeController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/FrontArticleController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/GUI/home.fxml</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/acceuilController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Tests/mainAdmin.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/ParticipeEventController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/APIs/javaMail.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Tests/mainFront.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Services/ServiceReclamation.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/MenuActController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/CategorieController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/MenuArtController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/AjouterPubController.java</file>
+            <file>file:/C:/Users/miral/OneDrive/Bureau/ESPRIT/3A6/SEM2/PIdev_desktopfinal/src/Controllers/SMSController.java</file>
         </group>
     </open-files>
 </project-private>

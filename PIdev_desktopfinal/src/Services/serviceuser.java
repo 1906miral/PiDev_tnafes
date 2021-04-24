@@ -44,7 +44,65 @@ public class serviceuser {
         return list;
     }
 
-    //select * from utilisateur INNER JOIN client on utilisateur.id=client.id_client
+    public List<user> trimailclient() {
+        List<user> list = new ArrayList<>();
+        try {
+            String requete = "select * from utilisateur INNER JOIN client on utilisateur.id=client.id_client ORDER BY client.email";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new user(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),rs.getInt("numtel"),rs.getString("password"),rs.getBoolean("perma_ban"),rs.getDate("date_block")));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public List<user> trinomclient() {
+        List<user> list = new ArrayList<>();
+        try {
+            String requete = "select * from utilisateur INNER JOIN client on utilisateur.id=client.id_client ORDER BY client.nom";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new user(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),rs.getInt("numtel"),rs.getString("password"),rs.getBoolean("perma_ban"),rs.getDate("date_block")));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public List<user> triprenomclient() {
+        List<user> list = new ArrayList<>();
+        try {
+            String requete = "select * from utilisateur INNER JOIN client on utilisateur.id=client.id_client ORDER BY client.prenom";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new user(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),rs.getInt("numtel"),rs.getString("password"),rs.getBoolean("perma_ban"),rs.getDate("date_block")));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public List<user> triidclient() {
+        List<user> list = new ArrayList<>();
+        try {
+            String requete = "select * from utilisateur INNER JOIN client on utilisateur.id=client.id_client ORDER BY client.id_client";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new user(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"),rs.getInt("numtel"),rs.getString("password"),rs.getBoolean("perma_ban"),rs.getDate("date_block")));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
 
     public List<user> allclients() {
         List<user> list = new ArrayList<>();

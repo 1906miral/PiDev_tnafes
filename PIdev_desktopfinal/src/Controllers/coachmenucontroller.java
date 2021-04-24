@@ -2,8 +2,11 @@ package Controllers;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.text.ParseException;
 import java.util.List;
+import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,15 +17,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import Models.coach;
 import Models.session;
 import Services.servicecoach;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class coachmenucontroller {
 
+
+    @FXML
+    private AnchorPane btnmodifier;
 
     @FXML
     private Button btnSignout;
@@ -30,13 +38,9 @@ public class coachmenucontroller {
     @FXML
     private Button btnSettings;
 
-    @FXML
-    private Button btnActivity;
 
-    @FXML
     private Button btnAbonnement;
 
-    @FXML
     private Button btnCustomers;
 
 
@@ -44,26 +48,8 @@ public class coachmenucontroller {
     private Button btnAcceuil;
 
 
-    @FXML
     private Button btncoach;
 
-    @FXML
-    private Button btnEvent;
-
-    @FXML
-    private Button btnCateg;
-
-    @FXML
-    private Button btncategEvent;
-
-    @FXML
-    private Button btnParticipation;
-
-    @FXML
-    private Button btnArticle;
-
-    @FXML
-    private Button btnmodifier;
 
     @FXML
     private TableView<coach> tvcoach;
@@ -87,9 +73,9 @@ public class coachmenucontroller {
     @FXML
     private TableColumn<coach, Float> tvsalaire;
     @FXML
-    private Button btnReclam;
+    private Button btnCons;
     @FXML
-    private Button btnPub;
+    private Button btnMsg;
 
      
     @FXML
@@ -99,12 +85,12 @@ public class coachmenucontroller {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/login.fxml"));
         btnSignout.getScene().setRoot(root);
     }
-     private void modifieradmin(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/modifieradmin.fxml"));
-        btnAbonnement.getScene().setRoot(root);
+
+     private void modifiercoach(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/modifiercoach.fxml"));
+        btnmodifier.getScene().setRoot(root);
     }
 
-    @FXML
      private void gérerCoach(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/coachfromadminmenu.fxml"));
         btncoach.getScene().setRoot(root);
@@ -116,13 +102,11 @@ public class coachmenucontroller {
         btnSettings.getScene().setRoot(root);
     }
 
-    @FXML
      private void displayCustomers(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/clientfromadminmenu.fxml"));
         btnCustomers.getScene().setRoot(root);
     }
     
-   @FXML
     private void gérerActivite(ActionEvent event) throws IOException {
          Parent gestionView = FXMLLoader.load(getClass().getResource("../GUI/menuAct.fxml"));
      Scene gestionViewScene = new Scene(gestionView);
@@ -136,7 +120,6 @@ public class coachmenucontroller {
 
  
 
-    @FXML
     private void gerercateg(ActionEvent event) throws IOException {
           Parent gestionView = FXMLLoader.load(getClass().getResource("../GUI/menuCat.fxml"));
      Scene gestionViewScene = new Scene(gestionView);
@@ -150,7 +133,6 @@ public class coachmenucontroller {
 
 
 
-    @FXML
     private void gérerArticle(ActionEvent event) throws IOException {
           Parent gestionView = FXMLLoader.load(getClass().getResource("../GUI/menuArt.fxml"));
      Scene gestionViewScene = new Scene(gestionView);
@@ -164,7 +146,6 @@ public class coachmenucontroller {
 
   
 
-    @FXML
     private void GérerReclamation(ActionEvent event) throws IOException {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("../GUI/Reclamations.fxml"));
         Parent root=loader.load();
@@ -174,11 +155,10 @@ public class coachmenucontroller {
 
     @FXML
     private void acceuil(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/home.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/coachmenu.fxml"));
         btnAcceuil.getScene().setRoot(root);
     }
 
-    @FXML
     private void GererPub(ActionEvent event) throws IOException {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("../GUI/AfficherPublication.fxml"));
         Parent root=loader.load();
@@ -187,7 +167,6 @@ public class coachmenucontroller {
     }
 
 
-       @FXML
     private void gérerParticipation(ActionEvent event) throws IOException {
          Parent home_page_parent= FXMLLoader.load(getClass().getResource("../GUI/participation.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -197,7 +176,6 @@ public class coachmenucontroller {
         app_stage.show();
     }
 
-    @FXML
     private void gérerEvent(ActionEvent event) throws IOException {
         Parent home_page_parent= FXMLLoader.load(getClass().getResource("../GUI/afficherEventadmin.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -207,7 +185,6 @@ public class coachmenucontroller {
         app_stage.show();
     }
 
-    @FXML
     private void gérerCategevent(ActionEvent event) throws IOException {
         Parent home_page_parent= FXMLLoader.load(getClass().getResource("../GUI/categorie.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -216,7 +193,6 @@ public class coachmenucontroller {
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
-  @FXML
     private void gererAbonnement(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficherab.fxml"));
         btnAcceuil.getScene().setRoot(root);
@@ -239,6 +215,23 @@ public class coachmenucontroller {
         tvsalaire.setCellValueFactory(new PropertyValueFactory<coach, Float>("salaire"));
 
         tvcoach.setItems(getpeople());
+    }
+
+   @FXML
+    private void gérerCons(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/TraiterConsultation.fxml"));
+        btnCons.getScene().setRoot(root);
+    
+    }
+
+    @FXML
+    private void gérermsg(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/ConsulterMessageCoach.fxml"));
+        btnMsg.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void modifiercoach(MouseEvent event) {
     }
 
  

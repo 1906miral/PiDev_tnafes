@@ -1,6 +1,8 @@
 package Controllers;
 
 import java.io.IOException;
+import java.text.ParseException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,8 +59,12 @@ public class settingscontroller {
 
     @FXML
     private Button btnchangerpass;
+
     @FXML
     private Button btnReclam;
+
+    @FXML
+    private Button btnmodifieradmin;
 
    
     @FXML
@@ -68,9 +74,24 @@ public class settingscontroller {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/login.fxml"));
         btnSignout.getScene().setRoot(root);
     }
-     private void modifieradmin(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/modifieradmin.fxml"));
-        btnAbonnement.getScene().setRoot(root);
+
+    @FXML
+     private void modifier(ActionEvent event) throws IOException, ParseException {
+        session se = new session();
+        se.readfromfile();
+        if(se.gettype().equals("admin")){
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/modifieradmin.fxml"));
+            btnmodifieradmin.getScene().setRoot(root);
+        }
+        if(se.gettype().equals("coach")){
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/modifiercoach.fxml"));
+            btnmodifieradmin.getScene().setRoot(root);
+        }
+        if(se.gettype().equals("client")){
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/modifierclient.fxml"));
+            btnmodifieradmin.getScene().setRoot(root);
+        }
+        
     }
 
     @FXML

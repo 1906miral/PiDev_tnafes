@@ -19,7 +19,7 @@ private static DataSource instance;
 
    
     private Connection cnx;
-    private final String URL = "jdbc:mysql://localhost:3306/tnafes";
+    private final String URL = "jdbc:mysql://localhost:3306/PiDev";
     private final String LOGIN = "root";
     private final String PASSWORD = "";
 

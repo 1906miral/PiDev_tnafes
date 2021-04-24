@@ -129,15 +129,15 @@ public class ReclamationClientController implements Initializable {
                       
                                         if(combo_state.getValue().equals("Traitée")){
                      
-//                                         String msg="Mr/Mme "+selectedreclam.getNom_user()+" "+selectedreclam.getPrenom_user()+" votre réclamation est traitée avec succés,merci pour votre confiance";
-//                                         javaMail mailling=new javaMail();
-//                                           mailling.message(selectedreclam.getEmail(),msg);
-//                                          String url="https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0";
-//                                          String username="barhoumimiral3"; //barhoumimiral3 redissimanel oumaima1 titi1
-//                                          String pwd="Miral1906"; //Rootroot123
-//                                            SMS send=new SMS();
-//                                              String numtel="+216"+selectedreclam.getNumtel();
-//                                          send.sendSms(username,pwd,msg,numtel,url);
+                                         String msg="Mr/Mme "+selectedreclam.getNom_user()+" "+selectedreclam.getPrenom_user()+" votre réclamation est traitée avec succés,merci pour votre confiance";
+                                         javaMail mailling=new javaMail();
+                                           mailling.message(selectedreclam.getEmail(),msg);
+                                          String url="https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0";
+                                          String username="redissimanel"; //barhoumimiral3 redissimanel oumaima1 titi1
+                                          String pwd="Miral1906"; //Rootroot123
+                                            SMS send=new SMS();
+                                              String numtel="+216"+selectedreclam.getNumtel();
+                                          send.sendSms(username,pwd,msg,numtel,url);
                                           Notifications b = Notifications.create()
                     .title("Succes")
                     .text("Réclamation modifiée,Client notifié avec succés")

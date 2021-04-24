@@ -10,6 +10,7 @@ import Models.Publication;
 import Models.session;
 import Models.user;
 import Services.ServicePublication;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,7 +33,9 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
+import javax.imageio.ImageIO;
 import org.controlsfx.control.Notifications;
+import org.apache.commons.io.FileUtils;
 
 /**
  * FXML Controller class
@@ -59,6 +62,7 @@ public class AjouterPubController implements Initializable {
     Services.ServicePublication sp=new ServicePublication();
     File selectedfile;
     String path;
+    String path2;
     public static FileChooser fc = new FileChooser();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -115,17 +119,21 @@ public class AjouterPubController implements Initializable {
             n.showWarning();
         }
         else{
-            sp.ajouter_pub(new Publication(user,contenu_update.getText(),path));
+            String s = path;
+      int index = s.lastIndexOf('\\');
+    String name = s.substring(index+1);
+    System.out.println(name);
+            sp.ajouter_pub(new Publication(user,contenu_update.getText(),name));
         }
         
     }
 
         @FXML
-    private void importerImageUpdate(ActionEvent event) throws MalformedURLException, FileNotFoundException {
+    private void importerImageUpdate(ActionEvent event) throws MalformedURLException, FileNotFoundException, IOException {
         // l fc declarith mel fou9 9bal l initialize  public static FileChooser fc = new FileChooser();
         // l selectedfile declarith mel fou9 9bal l initialize File selectedfile
         //l path type mteeha string declariha mel fou9 9bal l initialize 
-        fc.setInitialDirectory(new File(System.getProperty("user.home") + "\\OneDrive\\Bureau"));
+        fc.setInitialDirectory(new File(System.getProperty("user.home")+"\\OneDrive\\Bureau"));
 //        System.out.println(System.getProperty("user.home"));
         fc.setTitle("Veuillez choisir l'image");
         fc.getExtensionFilters().addAll(
@@ -134,11 +142,18 @@ public class AjouterPubController implements Initializable {
                 new FileChooser.ExtensionFilter("JPG", "*.jpg")
         );
         selectedfile = fc.showOpenDialog(null);
+        
         if (selectedfile != null) {
-            
+           
             path = selectedfile.getAbsolutePath();
-//                path = selectedFile.toURI().toURL().toExternalForm();
+      
+            File source=new File(path);
+            File destination=new File("C:\\Users\\miral\\OneDrive\\Bureau\\PiDevWeb2.33\\public\\uploads\\images\\posts");
+           
+        
+               FileUtils.copyFileToDirectory(source, destination);
            Image img=new Image(selectedfile.toURI().toString());
+         
 //           img_pub=new ImageView(img);
            image_update.setImage(img);
            image_update.setFitHeight(150);

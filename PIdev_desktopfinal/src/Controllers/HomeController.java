@@ -125,15 +125,15 @@ public class HomeController implements Initializable {
         setStatData(datap,dataAct);
         ///////////////////////////////
         // Get an array with the FRENCH month names.
-        String[] months2 = DateFormatSymbols.getInstance(Locale.FRENCH).getMonths();
-        // Convert it to a list and add it to our ObservableList of months.
-        monthNames2.addAll(Arrays.asList(months2));
-        
-        // Assign the month names as categories for the horizontal axis.
-        month.setCategories(monthNames2);
-        xAxis.setLabel("mois");
-        number.setLabel("Nombre");
-        setStatData2(data,data2);
+//        String[] months2 = DateFormatSymbols.getInstance(Locale.FRENCH).getMonths();
+//        // Convert it to a list and add it to our ObservableList of months.
+//        monthNames2.addAll(Arrays.asList(months2));
+//        
+//        // Assign the month names as categories for the horizontal axis.
+//        month.setCategories(monthNames2);
+//        xAxis.setLabel("mois");
+//        number.setLabel("Nombre");
+//        setStatData2(data,data2);
            
     }    
     
@@ -294,32 +294,32 @@ public class HomeController implements Initializable {
         barChart.getData().add(series2);
         barChart.setTitle("Statistiques Activité et Participation");
     }
-       public void setStatData2(List<Reclamation> reclamation,List<Publication>pub) {
-    	// Count the number of reviews in a specific month.
-        int[] monthCounter = new int[12];
-        int[] monthCounter2 = new int[12];
-        for (Reclamation p : reclamation) {
-            int month = p.getDate().getMonth();
-            monthCounter[month]++;
-        }
-         for (Publication p : pub) {
-            int month = p.getDate_publication().getMonth();
-            monthCounter2[month]++;
-        }
-
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
-        XYChart.Series<String, Integer> series2 = new XYChart.Series<>();
-        // Create a XYChart.Data object for each month. Add it to the series.
-        for (int i = 0; i < monthCounter.length; i++) {
-        	series.getData().add(new XYChart.Data<>(monthNames2.get(i), monthCounter[i]));
-                series2.getData().add(new XYChart.Data<>(monthNames2.get(i), monthCounter2[i]));
-        }
-        series.setName("Reclamation");
-        series2.setName("Publication");
-        
-        areaChart.getData().addAll(series,series2);
-        areaChart.setTitle("Statistiques Réclamation et Publication");
-        
-     
-    }
+//       public void setStatData2(List<Reclamation> reclamation,List<Publication>pub) {
+//    	// Count the number of reviews in a specific month.
+//        int[] monthCounter = new int[12];
+//        int[] monthCounter2 = new int[12];
+//        for (Reclamation p : reclamation) {
+//            int month = p.getDate().getMonth();
+//            monthCounter[month]++;
+//        }
+//         for (Publication p : pub) {
+//            int month = p.getDate_publication().getMonth();
+//            monthCounter2[month]++;
+//        }
+//
+//        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+//        XYChart.Series<String, Integer> series2 = new XYChart.Series<>();
+//        // Create a XYChart.Data object for each month. Add it to the series.
+//        for (int i = 0; i < monthCounter.length; i++) {
+//        	series.getData().add(new XYChart.Data<>(monthNames2.get(i), monthCounter[i]));
+//                series2.getData().add(new XYChart.Data<>(monthNames2.get(i), monthCounter2[i]));
+//        }
+//        series.setName("Reclamation");
+//        series2.setName("Publication");
+//        
+//        areaChart.getData().addAll(series,series2);
+//        areaChart.setTitle("Statistiques Réclamation et Publication");
+//        
+//     
+//    }
 }

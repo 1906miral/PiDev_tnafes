@@ -119,14 +119,14 @@ public class acceuil2Controller implements Initializable {
                          MediaPlayer mediap = new MediaPlayer(media);
 //                       mediap.setStopTime(Duration.seconds(3));
                          mediap.play();
-        File file=new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\Miral\\src\\images\\music.png");
+        File file=new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\3A6\\SEM2\\PIdev_desktopfinal\\src\\images\\music.png");
         Image img=new Image(file.toURI().toString());
         ImageView btnicon=new ImageView(img);
         btnicon.setFitHeight(30);
         btnicon.setFitWidth(30);
 //        playmusicbtn.setPrefSize(30,30);
         playmusicbtn.setGraphic(btnicon);
-         File file2=new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\Miral\\src\\images\\mute.png");
+         File file2=new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\3A6\\SEM2\\PIdev_desktopfinal\\src\\images\\mute.png");
         Image img2=new Image(file2.toURI().toString());
         ImageView btnicon2=new ImageView(img2);
          btnicon2.setFitHeight(30);

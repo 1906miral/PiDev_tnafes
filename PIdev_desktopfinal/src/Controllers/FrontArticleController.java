@@ -123,7 +123,7 @@ public class FrontArticleController implements Initializable {
                 
                 else{
                     
-                    File file = new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\Miral\\src\\images\\oops.jpg");
+                    File file = new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\3A6\\SEM2\\PIdev_desktopfinal\\src\\images\\oops.jpg");
                    Image image=new Image(file.toURI().toString());
          imgView.setImage(image);
          text.setText("NOT ADDED YET !!!!!!!!!!");
@@ -146,7 +146,7 @@ public class FrontArticleController implements Initializable {
         String art = text.getText();
          // String art = "salim hasni";
         ByteArrayOutputStream out = QRCode.from(art).to(ImageType.JPG).stream();
-        File f = new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\Miral\\src\\QR.jpg");
+        File f = new File("C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\3A6\\SEM2\\PIdev_desktopfinal\\src\\images\\QR.jpg");
         FileOutputStream fos = new FileOutputStream(f);
         fos.write(out.toByteArray());
         fos.flush();
@@ -168,7 +168,7 @@ public class FrontArticleController implements Initializable {
     
     @FXML 
     private void playMusic(){
-        String mus = "C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\Miral\\src\\music.mp3";
+        String mus = "C:\\Users\\miral\\OneDrive\\Bureau\\ESPRIT\\3A6\\SEM2\\PIdev_desktopfinal\\src\\images\\music.mp3";
         Media media = new Media(new File(mus).toURI().toString());
         MediaPlayer mediap = new MediaPlayer(media);
         mediap.play();

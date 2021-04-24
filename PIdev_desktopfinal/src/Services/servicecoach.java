@@ -138,4 +138,68 @@ public class servicecoach implements IServiceUser<coach> {
         }
         return list;
     }
+
+    public List<coach> trinom() {
+        List<coach> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM coach ORDER BY nom";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new coach(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),"",rs.getString(6),rs.getFloat(7)));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public List<coach> triprenom() {
+        List<coach> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM coach ORDER BY prenom";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new coach(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),"",rs.getString(6),rs.getFloat(7)));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public List<coach> trisalaire() {
+        List<coach> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM coach ORDER BY salaire";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new coach(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),"",rs.getString(6),rs.getFloat(7)));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+
+    public List<coach> trimail() {
+        List<coach> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM coach ORDER BY email";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new coach(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),"",rs.getString(6),rs.getFloat(7)));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
 }

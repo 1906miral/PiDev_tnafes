@@ -128,6 +128,18 @@ public class clientfromadmincontroller {
     @FXML
     private Button btnPub;
 
+    @FXML
+    private Button btnparid;
+
+    @FXML
+    private Button btnparnom;
+
+    @FXML
+    private Button btnparprenom;
+
+    @FXML
+    private Button btnparemail;
+
     void GérerPublication(ActionEvent event) {
 
     }
@@ -299,11 +311,60 @@ public class clientfromadmincontroller {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficherab.fxml"));
         btnAcceuil.getScene().setRoot(root);
     }
+
     public ObservableList<user> getpeople(){
         serviceuser sc= new serviceuser();
         List<user> listc = sc.allclients();
         ObservableList<user> people = FXCollections.observableArrayList(listc);
         return people;
+    }
+
+    public ObservableList<user> parid(){
+        serviceuser sc= new serviceuser();
+        List<user> listc = sc.triidclient();
+        ObservableList<user> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+     private void triid(ActionEvent event) throws IOException {
+        tvclient.setItems(parid());
+    }
+
+    public ObservableList<user> parnom(){
+        serviceuser sc= new serviceuser();
+        List<user> listc = sc.trinomclient();
+        ObservableList<user> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+     private void trinom(ActionEvent event) throws IOException {
+        tvclient.setItems(parnom());
+    }
+
+    public ObservableList<user> parmail(){
+        serviceuser sc= new serviceuser();
+        List<user> listc = sc.trimailclient();
+        ObservableList<user> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+    void triemail(ActionEvent event) {
+        tvclient.setItems(parmail());
+    }
+
+    public ObservableList<user> parprenom(){
+        serviceuser sc= new serviceuser();
+        List<user> listc = sc.triprenomclient();
+        ObservableList<user> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+    void triprenom(ActionEvent event) {
+        tvclient.setItems(parprenom());
     }
 
     public void initialize() {

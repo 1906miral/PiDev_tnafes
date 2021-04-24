@@ -30,6 +30,7 @@ import Utils.DataSource;
 import java.util.Collections;
 import java.util.Comparator;
 import IServices.IServicePublication;
+import java.io.File;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 
@@ -92,6 +93,8 @@ Connection cnx=DataSource.getInstance().getCnx();
     @Override
     public List<Publication> afficher_pub() {
                     List<Publication> list=new ArrayList<>();
+                    // File representing the folder that you select using a FileChooser
+   
         try{
 
              String requete="select * from publication";
@@ -103,7 +106,9 @@ Connection cnx=DataSource.getInstance().getCnx();
              ImageView img=new ImageView();
              Image image;
              try{
-                 image=new Image(new FileInputStream(rs.getString("urlimage")));
+                 
+                 image=new Image(new FileInputStream("C:\\Users\\miral\\OneDrive\\Bureau\\PiDevWeb2.33\\public\\uploads\\images\\posts\\"+rs.getString("urlimage")));
+                 //System.out.println("C:\\Users\\miral\\OneDrive\\Bureau\\PiDevWeb2.33\\public\\uploads\\images\\posts"+rs.getString("urlimage"));
                  img.setImage(image);
                  Effect DropShadow = new DropShadow();
                  img.setEffect(DropShadow);

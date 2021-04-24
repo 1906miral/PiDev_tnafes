@@ -204,5 +204,9 @@
       <Button fx:id="btnajoutcoach" layoutX="348.0" layoutY="431.0" mnemonicParsing="false" onAction="#ajoutcoach" text="ajout coach" />
       <Button fx:id="btnmodifercoach" layoutX="592.0" layoutY="431.0" mnemonicParsing="false" onAction="#modifercoach" text="modif coach" />
       <Button fx:id="btnsupprimercoach" layoutX="817.0" layoutY="431.0" mnemonicParsing="false" onAction="#supprimercoach" text="supprimer coach" />
+      <Button fx:id="btntrinom" layoutX="393.0" layoutY="109.0" mnemonicParsing="false" onAction="#trinom" text="par nom" />
+      <Button fx:id="btntriprenom" layoutX="466.0" layoutY="109.0" mnemonicParsing="false" onAction="#triprenom" text="par prenom" />
+      <Button fx:id="btnmail" layoutX="585.0" layoutY="109.0" mnemonicParsing="false" onAction="#trimail" text="par mail" />
+      <Button fx:id="btntrisalaire" layoutX="887.0" layoutY="109.0" mnemonicParsing="false" onAction="#trisalaire" text="par salaire" />
    </children>
 </AnchorPane>

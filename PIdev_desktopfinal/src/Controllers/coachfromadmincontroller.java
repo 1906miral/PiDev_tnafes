@@ -97,6 +97,18 @@ public class coachfromadmincontroller {
     @FXML
     private Button btnPub;
 
+    @FXML
+    private Button btntrinom;
+
+    @FXML
+    private Button btntriprenom;
+
+    @FXML
+    private Button btnmail;
+
+    @FXML
+    private Button btntrisalaire;
+
     
     @FXML
     private void logout(ActionEvent event) throws IOException {
@@ -232,6 +244,54 @@ public class coachfromadmincontroller {
         List<coach> listc = sc.afficher();
         ObservableList<coach> people = FXCollections.observableArrayList(listc);
         return people;
+    }
+
+    public ObservableList<coach> parprenom(){
+        servicecoach sc= new servicecoach();
+        List<coach> listc = sc.triprenom();
+        ObservableList<coach> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+    void triprenom(ActionEvent event) {
+        tvcoach.setItems(parprenom());
+    }
+
+    public ObservableList<coach> parnom(){
+        servicecoach sc= new servicecoach();
+        List<coach> listc = sc.trinom();
+        ObservableList<coach> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+    void trinom(ActionEvent event) {
+        tvcoach.setItems(parnom());
+    }
+
+    public ObservableList<coach> parmail(){
+        servicecoach sc= new servicecoach();
+        List<coach> listc = sc.trimail();
+        ObservableList<coach> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+    void trimail(ActionEvent event) {
+        tvcoach.setItems(parmail());
+    }
+
+    public ObservableList<coach> parsalaire(){
+        servicecoach sc= new servicecoach();
+        List<coach> listc = sc.trisalaire();
+        ObservableList<coach> people = FXCollections.observableArrayList(listc);
+        return people;
+    }
+
+    @FXML
+    void trisalaire(ActionEvent event) {
+        tvcoach.setItems(parsalaire());
     }
 
    public void initialize() {

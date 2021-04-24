@@ -14,8 +14,10 @@ package Controllers;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.pdf.PdfWriter;
 import Models.activite;
+import Models.categorieact;
 import Models.session;
 import Services.ServiceActivite;
+import Services.ServiceCategorieact;
 import Utils.DataSource;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -586,6 +588,24 @@ public class AfficherAController implements Initializable {
     private void gererAbonnement(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficherab.fxml"));
         btnAcceuil.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void onEditChangeT(TableColumn.CellEditEvent<activite,String> titrecelledit) {
+           activite act=tableA.getSelectionModel().getSelectedItem();
+        act.setTitre(titrecelledit.getNewValue());
+        ServiceActivite sa = new ServiceActivite();
+        
+        sa.modifier(new activite(act.getId_activite(),act.getTitre(),act.getTitre()));
+    }
+
+    @FXML
+    private void onEditChangeTD(TableColumn.CellEditEvent<activite,String> desccelledit) {
+         activite act=tableA.getSelectionModel().getSelectedItem();
+        act.setTitre(desccelledit.getNewValue());
+        ServiceActivite sa = new ServiceActivite();
+        
+        sa.modifier(new activite(act.getId_activite(),act.getTitre(),act.getTitre()));
     }
 
 

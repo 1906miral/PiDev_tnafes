@@ -110,7 +110,7 @@ public class AfficherPublicationController implements Initializable {
    col_image.setCellValueFactory(new PropertyValueFactory<>("img"));
    tableViewPub.setItems(data);
    SortedList<Publication> sortedData=tableViewSearchFilter(data);
-    tableViewPub.setItems(sortedData);
+   tableViewPub.setItems(sortedData);
 
    //create cell factory to insert a button in every row
    Callback<TableColumn<Publication,String>,TableCell<Publication,String>> cellFactory2=(param) -> {
