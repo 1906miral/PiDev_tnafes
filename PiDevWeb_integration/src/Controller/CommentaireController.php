@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ *
  * @Route("/commentaire")
  */
 class CommentaireController extends AbstractController
@@ -111,7 +112,7 @@ class CommentaireController extends AbstractController
 
 
     /**
-     * @Route("/{idComment2}", name="commentaire_delete2", methods={"DELETE"})
+     * @Route("/com/{idComment}", name="commentaire_delete2", methods={"DELETE"})
      */
     public function delete2(Request $request, Commentaire $commentaire,PublicationRepository $repository,FlashyNotifier $flashyNotifier): Response
 
@@ -128,6 +129,7 @@ class CommentaireController extends AbstractController
             $entityManager->flush();
         }
         $flashyNotifier->success('Commentaire supprimé avec succès','http://your-awesome-link.com');
-        return $this->render('publication_index2');
+        return $this->redirectToRoute('publication_index2');
     }
 }
+
