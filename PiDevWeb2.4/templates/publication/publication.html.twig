@@ -56,10 +56,24 @@
 
 
                     <div class="blog_post_text" id="d1" style="display:none">
+                        {% if app.user %}
                         {% for comment in commentaires %}
+                            {% if app.user.id==comment.idclientComment.id %}
+                            <p style="color: #0a1219">Vous</p>
+                                <form method="post" action="{{ path('commentaire_delete2', {'idComment2': comment.idComment}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.idComment) }}">
+                                    <p> {{ comment.contenuComment }} : {{ comment.datecomment ? comment.datecomment|date('Y-m-d'):''}}
+                                    <button id="btn" style="color:#a5a5a5;border: none;background-color: #feffff"> <img src="{{ asset('images/delete.png') }}" width="25" height="25"></button>
+                                    </p>
+                                </form>
+
+                            {% else %}
                             <p style="color: #0a1219">{{ comment.nomClient }} {{ comment.prenomClient }}</p>
                     <p> {{ comment.contenuComment }} : {{ comment.datecomment ? comment.datecomment|date('Y-m-d'):''}}</p>
+                                {% endif %}
                         {% endfor %}
+                        {% endif %}
                     </div>
 
 

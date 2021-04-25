@@ -106,7 +106,9 @@ class PublicationController extends AbstractController
      */
     //front
     public function show2(Publication $publication,Request $request ,PublicationRepository $repository,NormalizerInterface $Normalizer,FlashyNotifier $flashyNotifier): Response
-    {     $user=$this->get('security.token_storage')->getToken()->getUser();
+    {
+        $user=$this->get('security.token_storage')->getToken()->getUser();
+        dump($user);
         $publications = $repository->trie3();
         $commentaires = $this->getDoctrine()
             ->getRepository(Commentaire::class)
@@ -141,7 +143,8 @@ class PublicationController extends AbstractController
             'commentaire' => $commentaire,
             'formC' => $form->createView(),
             'commentaires'=>$commentaires,
-            json_encode($jsoncontent)
+            'user'=>$user,
+            json_encode($jsoncontent),
         ]);
     }
     /**

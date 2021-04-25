@@ -22,8 +22,8 @@
                 <td>{{ publication.datePublication ? publication.datePublication|date('Y-m-d') : '' }}</td>
                 <td><img src="{{vich_uploader_asset(publication,'imageFile') }}" width="80" height="80"></td>
                 <td>
-                    <a href="{{ path('publication_show', {'idPub': publication.idPub}) }}">Détails</a>
-                    <a href="{{ path('publication_edit', {'idPub': publication.idPub}) }}">Modifier</a>
+                    <a href="{{ path('publication_show', {'idPub': publication.idPub}) }}"><img src="{{ asset('images/detail.png') }}" height="30" width="30"></a>
+                    <a href="{{ path('publication_edit', {'idPub': publication.idPub}) }}"><img src="{{ asset('images/refresh.png') }}" height="25" width="25"></a>
                 </td>
             </tr>
         {% else %}

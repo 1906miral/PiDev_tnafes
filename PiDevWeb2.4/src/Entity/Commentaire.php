@@ -91,7 +91,7 @@ class Commentaire
     /**
      * @return int
      */
-    public function getIdComment(): int
+    public function getIdComment(): ?int
     {
         return $this->idComment;
     }
@@ -171,17 +171,17 @@ class Commentaire
 
 
     /**
-     * @return \Utilisateur
+     * @return Utilisateur
      */
-    public function getIdclientComment(): \Utilisateur
+    public function getIdclientComment(): Utilisateur
     {
         return $this->idclientComment;
     }
 
     /**
-     * @param \Utilisateur $idclientComment
+     * @param Utilisateur $idclientComment
      */
-    public function setIdclientComment(\Utilisateur $idclientComment): void
+    public function setIdclientComment(Utilisateur $idclientComment): void
     {
         $this->idclientComment = $idclientComment;
     }

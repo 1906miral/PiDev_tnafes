@@ -74,7 +74,7 @@
                     <td>{{utilisateur.Prenom}}</td>
                     <td>{{utilisateur.Email}}</td>
                     <td>{{utilisateur.Numtel}}</td>
-                    <td><a href="{{ path('affichagecoachclientdelete',{id: utilisateur.Id}) }}">Delete</a></td>
+                    <td><a href="{{ path('affichagecoachclientdelete',{id: utilisateur.Id}) }}">Supprimer</a></td>
                   </tr>
                   
                   {% endfor %}
@@ -150,7 +150,7 @@
                     <td>{{utilisateur.Prenom}}</td>
                     <td>{{utilisateur.Email}}</td>
                     <td>{{utilisateur.Numtel}}</td>
-                    <td><a href="{{ path('affichagecoachclientdelete',{id: utilisateur.Id}) }}">Delete</a></td>
+                    <td><a href="{{ path('affichagecoachclientdelete',{id: utilisateur.Id}) }}">Supprimer</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -179,7 +179,7 @@
                     <td>{{coach.Id}}</td>
                     <td>{{coach.Role}}</td>
                     <td>{{coach.Salaire}}</td>
-                    <td><a href="{{ path('affichagecoachclientupdatecoach',{id: coach.Id}) }}">Update</a></td>
+                    <td><a href="{{ path('affichagecoachclientupdatecoach',{id: coach.Id}) }}">Modifier</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>

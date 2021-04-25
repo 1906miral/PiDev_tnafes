@@ -108,4 +108,26 @@ class CommentaireController extends AbstractController
         $flashyNotifier->success('Commentaire supprimé avec succès','http://your-awesome-link.com');
         return $this->redirectToRoute('publication_index');
     }
+
+
+    /**
+     * @Route("/{idComment2}", name="commentaire_delete2", methods={"DELETE"})
+     */
+    public function delete2(Request $request, Commentaire $commentaire,PublicationRepository $repository,FlashyNotifier $flashyNotifier): Response
+
+    {
+        //$repository=PublicationRepository::class;
+        $id=$commentaire->getIdpub()->getIdPub();
+        $publication=$repository->find($id);
+        $nb=$publication->getNbcomment();
+        if ($this->isCsrfTokenValid('delete'.$commentaire->getIdComment(), $request->request->get('_token'))) {
+            $nb--;
+            $publication->setNbcomment($nb);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($commentaire);
+            $entityManager->flush();
+        }
+        $flashyNotifier->success('Commentaire supprimé avec succès','http://your-awesome-link.com');
+        return $this->render('publication_index2');
+    }
 }

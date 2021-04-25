@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{ commentaire.contenuComment }}</td>
                         <td>{{ commentaire.datecomment ? commentaire.datecomment|date('Y-m-d'):''}}</td>
-                        <td><a href="{{ path('commentaire_show', {'idComment': commentaire.idComment}) }}">Détails</a></td>
+                        <td><a href="{{ path('commentaire_show', {'idComment': commentaire.idComment}) }}"><img src="{{ asset('images/detail.png') }}" height="30" width="30"></a></td>
                     </tr>
 
             {% else %}
@@ -41,7 +41,7 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('publication_index') }}">Retour</a>
+    <a href="{{ path('publication_index') }}"><img src="{{ asset('images/undo.png') }}" width="40" height="40"></a>
 
 
     {{ include('publication/_delete_form.html.twig') }}

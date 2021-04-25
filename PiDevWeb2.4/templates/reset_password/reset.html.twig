@@ -38,19 +38,19 @@
 		 	<div class="text-center">
                 <div class="logo menu_logo"><a href="#"><img src="{{ asset('images/123.png') }}" alt=""></a></div>
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">Login</div>
+		  <div class="card-title text-uppercase text-center py-3">Se connecter</div>
           {% block body %}
 			  {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
         
-        <button class="btn btn-light btn-block">Reset password</button>
+        <button class="btn btn-light btn-block">Changer mot de passe</button>
 			 
 			 {{ form_end(resetForm) }}
              {% endblock %}
 		   </div>
 		  </div>
 		  <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Pas de compte? <a href="{{ path('signup') }}"> Sign Up ici</a></p>
+		    <p class="text-warning mb-0">Pas de compte? <a href="{{ path('signup') }}">Créer un compte</a></p>
 		  </div>
 	     </div>
     

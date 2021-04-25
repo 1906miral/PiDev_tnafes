@@ -43,9 +43,9 @@
                 <td>{{ reclamation.dateTraitement ? reclamation.dateTraitement|date('Y-m-d') : '' }}</td>
                 <td>
                     {% if reclamation.etat=='Traitée'  %}
-                    <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}" onclick="return false;">Modifier</a>
+                    <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}" onclick="return false;"><img src="{{ asset('images/refresh.png') }}" height="30" width="30"></a>
                     {% else %}
-                        <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}">Modifier</a>
+                        <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}"><img src="{{ asset('images/refresh.png') }}" height="30" width="30"></a>
                     {% endif %}
                 </td>
             </tr>
