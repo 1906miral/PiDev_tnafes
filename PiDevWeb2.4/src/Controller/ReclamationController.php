@@ -40,7 +40,7 @@ class ReclamationController extends AbstractController
             $creationdate=$rec->getDate();
             $diff=date_diff($currentdate,$creationdate);
             $days=intval($diff->format("%d"));
-                     if($days>3 && $rec->getEtat()!='Traitée'){
+                     if($days>3 && $rec->getDatetraitement()==null){
                 $nb++;
                 $donnees=$repository->triedecroissant();
                 $reclamations=$paginator->paginate(
@@ -133,9 +133,12 @@ class ReclamationController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
+               if ($reclamation->getEtat() == 'Traitée') {
+                $reclamation->setDateTraitement(new \DateTime('now'));
 
+            }
 
-            $reclamation->setDateTraitement(new \DateTime('now'));
+          
             $this->getDoctrine()->getManager()->flush();
             $nom = $reclamation->getNomUser();
             $prenom = $reclamation->getPrenomUser();
