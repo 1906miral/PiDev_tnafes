@@ -48,7 +48,7 @@ class ReclamationController extends AbstractController
                     $request->query->getInt('page',1),// Numéro de la page en cours, passé dans l'URL, 1 si aucune page
                     7   // Nombre de résultats par page
                 );
-                $flashy->warning('Il y a des réclamation qui ont depassées 72h depuis leur création,veuillez les traiter plus tôt possible!', 'http://your-awesome-link.com');
+                $flashy->warning($nb.' réclamation ont depassées 72h depuis leur création,veuillez les traiter plus tôt possible!', 'http://your-awesome-link.com');
 
             }
         }
