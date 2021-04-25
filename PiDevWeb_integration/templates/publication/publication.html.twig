@@ -60,7 +60,7 @@
                         {% for comment in commentaires %}
                             {% if app.user.id==comment.idclientComment.id %}
                             <p style="color: #0a1219">Vous</p>
-                                <form method="post" action="{{ path('commentaire_delete2', {'idComment2': comment.idComment}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire?');">
+                                <form method="post" action="{{ path('commentaire_delete2', {'idComment': comment.idComment}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer ce commentaire?');">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.idComment) }}">
                                     <p> {{ comment.contenuComment }} : {{ comment.datecomment ? comment.datecomment|date('Y-m-d'):''}}
