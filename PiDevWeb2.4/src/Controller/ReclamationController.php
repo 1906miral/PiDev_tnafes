@@ -40,7 +40,11 @@ class ReclamationController extends AbstractController
             $creationdate=$rec->getDate();
             $diff=date_diff($currentdate,$creationdate);
             $days=intval($diff->format("%d"));
+<<<<<<< HEAD
             if($days>3 && $rec->getDatetraitement()==null){
+=======
+                     if($days>3 && $rec->getDatetraitement()==null){
+>>>>>>> 42b5e0675354351526d083bc6c54638d1e223436
                 $nb++;
                 $donnees=$repository->triedecroissant();
                 $reclamations=$paginator->paginate(
@@ -48,6 +52,7 @@ class ReclamationController extends AbstractController
                     $request->query->getInt('page',1),// Numéro de la page en cours, passé dans l'URL, 1 si aucune page
                     7   // Nombre de résultats par page
                 );
+<<<<<<< HEAD
 
                 if($nb==1)
                 {
@@ -55,6 +60,14 @@ class ReclamationController extends AbstractController
                 }
                 else {
 
+=======
+                if($nb==1)
+                {
+                    $flashy->warning($nb.' réclamation a depassée 72h depuis sa création,veuillez la traiter plus tôt possible!', 'http://your-awesome-link.com');
+                }
+                else {
+
+>>>>>>> 42b5e0675354351526d083bc6c54638d1e223436
 
                     $flashy->warning($nb . ' réclamation ont depassées 72h depuis leur création,veuillez les traiter plus tôt possible!', 'http://your-awesome-link.com');
                 }
@@ -134,12 +147,20 @@ class ReclamationController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
+               if ($reclamation->getEtat() == 'Traitée') {
+                $reclamation->setDateTraitement(new \DateTime('now'));
 
+<<<<<<< HEAD
             if ($reclamation->getEtat() == 'Traitée') {
                 $reclamation->setDateTraitement(new \DateTime('now'));
 
             }
 
+=======
+            }
+
+          
+>>>>>>> 42b5e0675354351526d083bc6c54638d1e223436
             $this->getDoctrine()->getManager()->flush();
             $nom = $reclamation->getNomUser();
             $prenom = $reclamation->getPrenomUser();
