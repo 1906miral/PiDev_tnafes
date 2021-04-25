@@ -40,7 +40,7 @@ class ReclamationController extends AbstractController
             $creationdate=$rec->getDate();
             $diff=date_diff($currentdate,$creationdate);
             $days=intval($diff->format("%d"));
-            if($days>3){
+                     if($days>3 && $rec->getEtat()!='Traitée'){
                 $nb++;
                 $donnees=$repository->triedecroissant();
                 $reclamations=$paginator->paginate(
@@ -48,8 +48,15 @@ class ReclamationController extends AbstractController
                     $request->query->getInt('page',1),// Numéro de la page en cours, passé dans l'URL, 1 si aucune page
                     7   // Nombre de résultats par page
                 );
-                $flashy->warning($nb.' réclamation ont depassées 72h depuis leur création,veuillez les traiter plus tôt possible!', 'http://your-awesome-link.com');
+                if($nb==1)
+                {
+                    $flashy->warning($nb.' réclamation a depassée 72h depuis sa création,veuillez la traiter plus tôt possible!', 'http://your-awesome-link.com');
+                }
+                else {
 
+
+                    $flashy->warning($nb . ' réclamation ont depassées 72h depuis leur création,veuillez les traiter plus tôt possible!', 'http://your-awesome-link.com');
+                }
             }
         }
 
