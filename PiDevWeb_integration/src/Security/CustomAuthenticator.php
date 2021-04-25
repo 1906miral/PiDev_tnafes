@@ -121,7 +121,7 @@ class CustomAuthenticator extends AbstractFormLoginAuthenticator
         }, $roles);
         // If is a admin we redirect to the backoffice area
         if (in_array('ROLE_ADMIN', $rolesTab, true)){
-            $redirection = new RedirectResponse($this->router->generate('affichagecoachclient'));
+            $redirection = new RedirectResponse($this->router->generate('reclamation_index'));
         }
         // kenou coach
         /*elseif(in_array('ROLE_COACH', $rolesTab, true)){

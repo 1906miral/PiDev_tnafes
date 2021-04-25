@@ -154,22 +154,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\templates" />
-      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\public" />
-      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\config\packages" />
-      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\src\Form" />
-      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\src\Controller" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\miral\OneDrive\Bureau\ESPRIT\3A6\SEM2\PiDevWeb2.3\templates\commentaire" />
       <recent name="C:\Users\miral\OneDrive\Bureau\ESPRIT\3A6\SEM2\PiDevWeb2.3\templates\publication" />
       <recent name="C:\Users\miral\OneDrive\Bureau\ESPRIT\3A6\SEM2\PiDevWeb2.3\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.4\templates" />
+      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\templates" />
+      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\public" />
+      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\config\packages" />
+      <recent name="C:\Users\miral\OneDrive\Bureau\PiDevWeb2.33\src\Form" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -192,6 +192,7 @@
       <workItem from="1618915595407" duration="66444000" />
       <workItem from="1619297139636" duration="13485000" />
       <workItem from="1619362390615" duration="6037000" />
+      <workItem from="1619376194304" duration="1767000" />
     </task>
     <servers />
   </component>
