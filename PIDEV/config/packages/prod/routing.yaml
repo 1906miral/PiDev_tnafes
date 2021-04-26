@@ -1,0 +1,7 @@
+
+# app/config/routing.yml
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+framework:
+    router:
+        strict_requirements: null
