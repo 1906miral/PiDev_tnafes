@@ -1,0 +1,16 @@
+{% extends 'FrontAjoutEvent.html.twig' %}
+
+
+{% block Ajoutparticipation %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <script src="//code.jquery.com/jquery.js"></script>
+
+    {{ include('participation/_form.html.twig') }}
+
+<!--  <a href="{{ path('participation_index') }}">back to list</a>-->
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+
+{% endblock %}
+
