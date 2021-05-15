@@ -224,7 +224,7 @@ public class ListeReclamationForm extends BaseForm {
 
         createLineSeparator();
 
-         cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(BoxLayout.encloseX(dateTxt),BoxLayout.encloseX(sujetRecTxt),BoxLayout.encloseX(DescriptionTxt),BoxLayout.encloseX(StatutTxt)));
+//         cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(BoxLayout.encloseX(dateTxt),BoxLayout.encloseX(sujetRecTxt),BoxLayout.encloseX(DescriptionTxt),BoxLayout.encloseX(StatutTxt)));
         //supprimer button
 //        Label lSupprimer = new Label(" ");
 //        lSupprimer.setUIID("NewsTopLine");

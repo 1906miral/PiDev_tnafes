@@ -48,10 +48,10 @@ public class ServiceReclamation {
     //Ajout
     public void addReclamation(Reclamation reclamation) throws Exception {
 
-        String url = Statics.BASE_URL + "/jsonAjoutreclam" 
+        String url = Statics.BASE_URL + "/jsonAjoutreclam"
                 + "?objet=" + reclamation.getObjet()
                 + "&description=" + reclamation.getDescription();
-               
+
         //Na9esa el DateTraitement,NomPrenomCoach,imgRec
         System.out.println(url);
         req.setUrl(url);
@@ -110,6 +110,12 @@ public class ServiceReclamation {
                 }
             }
         });
+        System.out.println(url);
+        req.setUrl(url);
+        req.addResponseListener(e -> {
+            String str = new String(req.getResponseData());//reponse jason 
+            System.out.println("data ==> " + str);
+        });
         NetworkManager.getInstance().addToQueueAndWait(req);//execution te3 request
         return result;
     }
@@ -130,7 +136,7 @@ public class ServiceReclamation {
 //
     //Modifier Reclamation
     public boolean ModifierReclamation(Reclamation reclamation) {
-        String url = Statics.BASE_URL + "/editjson?id_reclamation=" + reclamation.getId_reclamation()+ "&etat=" + reclamation.getEtat();
+        String url = Statics.BASE_URL + "/editjson?id_reclamation=" + reclamation.getId_reclamation() + "&etat=" + reclamation.getEtat();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

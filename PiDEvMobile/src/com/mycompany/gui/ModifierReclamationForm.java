@@ -36,32 +36,31 @@ public class ModifierReclamationForm extends BaseForm {
         getContentPane().setScrollVisible(false);
 
         super.addSideMenu(res);
-        //TextField Sujetrec = new TextField(rec.getSujetRec(), "Sujet", 20, TextField.ANY);
-        TextField DescriptionRec = new TextField(rec.getDescription(), "Description", 20, TextField.ANY);
-        TextField Sujetrec = new TextField(String.valueOf(rec.getObjet()), "Sujet", 20, TextField.ANY);
+    
+        TextField Sujetrec = new TextField(String.valueOf(rec.getObjet()), "Etat", 20, TextField.ANY);
 
         ///Combobox
         ComboBox SujetCombo = new ComboBox();
-        SujetCombo.addItem("Application");
-        SujetCombo.addItem("Coach");
-        SujetCombo.addItem("Autre");
+        SujetCombo.addItem("Traitée");
+        SujetCombo.addItem("En traitement");
+       
         
-        if(rec.getObjet().equals("Application")){SujetCombo.setSelectedIndex(0);}
-        if(rec.getObjet().equals("Coach")){SujetCombo.setSelectedIndex(1);}
-        if(rec.getObjet().equals("Autre")){SujetCombo.setSelectedIndex(2);}
+        if(rec.getObjet().equals("Traitée")){SujetCombo.setSelectedIndex(0);}
+        if(rec.getObjet().equals("En traitement")){SujetCombo.setSelectedIndex(1);}
+  
 
         Sujetrec.setUIID("NewsTopLine");
-        DescriptionRec.setUIID("NewsTopLine");
+
         Sujetrec.setSingleLineTextArea(true);
-        DescriptionRec.setSingleLineTextArea(true);
+
 
         Button btnModifier = new Button("Modifier");
 
         //Evenet onClick btnModifier
         btnModifier.addPointerPressedListener(l -> {
            // rec.setSujetRec(Sujetrec.getText());
-            rec.setObjet(SujetCombo.getSelectedItem().toString());
-            rec.setDescription(DescriptionRec.getText());
+            rec.setEtat(SujetCombo.getSelectedItem().toString());
+       
 
             if (ServiceReclamation.getInstance().ModifierReclamation(rec)) {
                 new ListeReclamationForm(res).show();
@@ -84,7 +83,6 @@ public class ModifierReclamationForm extends BaseForm {
                 l1, l2,
                 SujetCombo,
                 createLineSeparator(),
-                new FloatingHint(DescriptionRec),
                 createLineSeparator(),
                 btnModifier,
                 btnAnnuler
