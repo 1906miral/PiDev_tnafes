@@ -1,0 +1,40 @@
+{% extends 'pub.html.twig' %}
+{% block Posts %}
+    <div class="blog">
+    <div class="container">
+    <div class="row">
+
+    <!-- Blog Content -->
+
+    <div class="col-lg-8">
+
+    <div class="blog_post_container">
+    <div class="blog_post">
+        <div class="blog_post_image">
+            <img src="{{ vich_uploader_asset(publication,'imageFile') }}" height="300">
+            <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                <div class="blog_post_day">{{ publication.datePublication ? publication.datePublication|date('d') : '' }}</div>
+                <div class="blog_post_month">{{ publication.datePublication ? publication.datePublication|date('m-y') : '' }}</div>
+            </div>
+        </div>
+        <div class="blog_post_meta">
+            <ul>
+                <li class="blog_post_meta_item">by Tnafes</li>
+                <li class="blog_post_meta_item">3 Comments</li>
+            </ul>
+        </div>
+        <div class="blog_post_title">Votre calme avec tnafes</div>
+        <div class="blog_post_text">
+            <p>Aenean in lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at eleifend tellus. Ut eleifend dui nunc, non fermentum qua.</p>
+        </div>
+        {{ include('publication/_formC.html.twig', {'button_label': 'Commenter'}) }}
+
+
+
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+{% endblock %}

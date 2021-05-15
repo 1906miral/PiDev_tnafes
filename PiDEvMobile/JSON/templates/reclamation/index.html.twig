@@ -1,0 +1,71 @@
+{% extends 'basedisplay.html.twig' %}
+
+{% block titre %}
+    Liste des réclamations
+{% endblock %}
+{% block table %}
+
+
+    <table class="table" id="t">
+        <thead>
+        <tr>
+
+            <th>NomUser</th>
+            <th>PrenomUser</th>
+            <th>Numtel</th>
+            <th>Email</th>
+            <th>Description</th>
+            <th>Objet</th>
+            <th>Etat</th>
+            <th>Date</th>
+            <th>DateTraitement</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody id="all">
+        {% for reclamation in reclamations %}
+            <tr>
+
+                <td>{{ reclamation.nomUser }}</td>
+                <td>{{ reclamation.prenomUser }}</td>
+                <td>{{ reclamation.numtel }}</td>
+                <td>{{ reclamation.email }}</td>
+                <td>{{ reclamation.description }}</td>
+                <td>{{ reclamation.objet }}</td>
+                {% if reclamation.etat=='Traitée'  %}
+                    <td><img src="{{ asset('images/check.png') }}" height="40" width="40"></td>
+                {% elseif reclamation.etat=='En attente' %}
+                    <td><img src="{{ asset('images/wait.png') }}" height="40" width="40"></td>
+                {% else %}
+                    <td><img src="{{ asset('images/loading.png') }}" height="40" width="40"></td>
+                {% endif %}
+                <td>{{ reclamation.date ? reclamation.date|date('Y-m-d') : '' }}</td>
+                <td>{{ reclamation.dateTraitement ? reclamation.dateTraitement|date('Y-m-d') : '' }}</td>
+                <td>
+                    {% if reclamation.etat=='Traitée'  %}
+                        <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}" onclick="return false;"><img src="{{ asset('images/refresh.png') }}" height="30" width="30"></a>
+                    {% else %}
+                        <a href="{{ path('reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}"><img src="{{ asset('images/refresh.png') }}" height="30" width="30"></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucune réclamation</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tbody id="search">
+        </tbody>
+
+    </table>
+
+
+{% endblock %}
+{% block pagination %}
+    <div >
+
+        {{ knp_pagination_render(reclamations) }}
+
+    </div>
+{% endblock %}
